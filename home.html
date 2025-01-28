@@ -5,31 +5,75 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Name - About Me</title>
+  <title>{Name} - Contact</title>
   <meta name="description"
     content="Hello there, I'm [Name] – an intrepid explorer through the lens, on a relentless quest to capture the world's boundless wonders. Join me in unraveling the extraordinary through my lens as I embark on a visual journey like no other.">
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
-  <link rel="stylesheet" href="output.css" />
+  <link rel="stylesheet" href="dist/output.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <!-- Start - Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
   <!-- End - Fonts -->
+   <style>
+    body {
+  margin: 0; /* Reset default browser margins */
+  padding: 0; /* Reset default browser padding */
+   /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #fff; /* Optional, for visibility */
+}
+
+.container {
+  max-width: 100%; /* Ensure the container is responsive */
+  padding: 20px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures no inline spacing issues */
+  margin: 0 auto; /* Center image horizontally */
+  border: 2px solid #fff;
+}
+@media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      .image-container {
+        border-radius: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-container img {
+        border: 1px solid #ddd;
+      }
+    }
+
+   </style>
 </head>
 
 <body
   class="dark:bg-black bg-white h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
   <!-- Navbar -->
-  <header class="flex w-full overflow-hidden pt-10 pb-1">
+  <header class="flex w-full overflow-hidden pt-10 ">
     <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
         <div class="mr-4 md:mr-8">
-          <a href="../home.html" class="text-2xl font-signika font-bold">[Name]</a>
+          <a href="home.html" class="text-2xl font-signika font-bold">[Name]</a>
         </div>
         <div class="ml-auto md:hidden flex items-center justify-start">
           <button onclick="menuToggle()" @click="open = !open"
@@ -54,28 +98,27 @@
           <ul id="ulMenu"
             class="flex flex-col duration-300 ease-out md:space-x-5 sm:transition-none mt-5 md:flex-row md:items-center md:ml-auto md:mt-0 md:pt-0 md:border-0">
             <li class="group transition duration-300">
-              <a href="../home.html" class="font-signika text-2xl tap-highlight-transparent">HOME
+              <a href="home.html" class="font-signika text-2xl tap-highlight-transparent">HOME
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="index.html" class="font-signika text-2xl">PORTFOLIO
+              <a href="dist/index.html" class="font-signika text-2xl">PORTFOLIO
                 <span
-                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white">
-                </span>
+                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="about_me.html" class="font-signika text-2xl">ABOUT ME
-                <span class="hidden md:block h-0.5 bg-black dark:bg-white"></span>
+              <a href="dist/about_me.html" class="font-signika text-2xl tap-highlight-transparent">ABOUT ME
+                <span
+                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
             <li class="group transition duration-300">
-              <a href="contact.html" class="font-signika text-2xl">CONTACT
+              <a href="dist/contact.html" class="font-signika text-2xl tap-highlight-transparent">CONTACT
                 <span
-                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white">
-                </span>
+                  class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
             </li>
           </ul>
@@ -83,50 +126,11 @@
       </div>
     </nav>
   </header>
-  <!-- Content -->
-  <div class="container mx-auto">
-    <h1 class="text-4xl pt-10 pb-8"><b>ABOUT ME</b></h1>
-    <div class="grid grid-cols-2 gap-14 md:gap-20">
-      <div class="col-span-2 md:col-span-1">
-        <div
-          class="bg-white dark:bg-neutral-900 p-5 pb-28 m-6 md:m-12 shadow-lg border border-gray-100 dark:border-neutral-800 hover:rotate-0 transition duration-500 -rotate-6 relative">
-          <img  alt=""
-            class="smooth-edges flex flex-col w-full aspect-square object-cover h-auto" />
-          <div class="absolute bottom-0 left-0 right-0 text-center">
-            <p class="text-gray-800 dark:text-slate-200 pb-7 h-full text-6xl font-nothingyoucoulddo">me</p>
-          </div>
-        </div>
+  <!--content-->
+  <div class="container">
 
-      </div>
-      <section class="font-normal text-center text-base md:text-start mx-3 col-span-2 md:col-span-1 my-auto">
-        <div class="block md:hidden">
-          <p class="text-3xl font-serif font-bold mb-1">Hello there,</p>
-          <p class="text-3xl font-serif font-bold mb-6">I'm [Name] <span class="animate-wave">👋</span></p>
-        </div>
-        <p class="hidden md:block text-3xl font-serif font-bold mb-6">Hello there, I'm [Name]
-          <span class="animate-wave">👋</span>
-        </p>
-        <p class="mb-4">
-          I'm a Mumbai-based photographer with over 6 years of
-          experience in capturing unforgettable moments. I specialize in
-          creating images that are both visually striking and emotionally
-          impactful, and I have developed a signature style that blends
-          natural beauty with vibrant colors and bold compositions.
-        </p>
-        <p class="mb-4">
-          When I'm not behind the camera, you can find me exploring the city's
-          diverse neighborhoods, trying out new restaurants, or spending time
-          with my family and friends. I believe that every moment is an
-          opportunity to experience something new and to create memories that
-          will last a lifetime.
-        </p>
-        <p>
-          Thank you for taking the time to learn a little bit about me and my
-          work. If you're interested in collaborating or would like to see
-          more of my portfolio, please don't hesitate to get in touch. Let's
-          work together to bring your vision to life!
-        </p>
-      </section>
+    <div class="image-container ">
+      <img src="https://t3.ftcdn.net/jpg/02/83/61/66/360_F_283616657_kFKb0t58mk7NXktYjXUZZqypFhm8QRb1.jpg" alt="Woman in a field holding flowers">
     </div>
   </div>
   <!-- Footer -->
@@ -181,8 +185,8 @@
      
     </div>
   </footer>
-  <script src="fade_in.js"></script>
-  <script src="menu.js"></script>
+  <script src="dist/fade_in.js"></script>
+  <script src="dist/menu.js"></script>
 </body>
 
 </html>
