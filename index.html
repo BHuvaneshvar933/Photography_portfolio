@@ -31,10 +31,7 @@
       background-color: #0a0a0a;
       color: #fff;
     }
-
-    /* HEADER */
-    
-
+  
     /* Main Content Container */
     .content-container {
       display: flex;
@@ -42,7 +39,7 @@
       margin-top: 50px;
       margin-left: 20px;
     }
-
+  
     /* HERO SECTION */
     .hero {
       flex: 2;
@@ -52,7 +49,6 @@
       background: url('/dist/assets/wallpaperflare.com_wallpaper.jpg') center/cover no-repeat;
       min-height: 600px;
     }
-    /* Overlay for better text contrast */
     .hero::before {
       content: '';
       position: absolute;
@@ -68,7 +64,6 @@
       z-index: 2;
       max-width: 80%;
       font-family: 'Playfair Display', serif;
-      /* Extra spacing tweaks */
       margin-top: 150px;
       margin-left: 20px;
     }
@@ -105,13 +100,13 @@
       transition: background-color 0.3s ease;
     }
     .shoot-btn:hover {
-      background-color: #5fe7ee; /* Slightly darker/lighter variant */
+      background-color: #5fe7ee;
     }
-
+  
     /* GALLERY SECTION */
     .gallery-section {
       flex: 1;
-      border-left: 1px solid #fff; /* Vertical separator */
+      border-left: 1px solid #fff;
       padding-left: 20px;
       display: flex;
       flex-direction: column;
@@ -122,7 +117,7 @@
       margin-bottom: 20px;
       font-size: 24px;
       font-family: 'Playfair Display', serif;
-      color: #7DF9FF; /* Accent color for heading */
+      color: #7DF9FF;
     }
     .gallery {
       display: flex;
@@ -130,39 +125,35 @@
       gap: 20px;
     }
     .gallery img {
-      width: 250px; /* Increased size for bigger gallery images */
+      width: 250px;
       border-radius: 5px;
       border: 1px solid #fff;
       object-fit: cover;
     }
     .portfolio-btn {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #7DF9FF; /* Your accent color */
-  color: #000;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 14px 30px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.portfolio-btn:hover {
-  background-color: #5fe7ee; /* Slight color shift on hover */
-}
-#ulMenu li a:hover {
-  color: #7DF9FF;
-}
-
-/* Keep the color on active/clicked state */
-/* If you add an "active" class to the current page's link, this rule applies */
-#ulMenu li a:active,
-#ulMenu li a.active {
-  color: #7DF9FF;
-}
-
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #7DF9FF;
+      color: #000;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .portfolio-btn:hover {
+      background-color: #5fe7ee;
+    }
+    #ulMenu li a:hover {
+      color: #7DF9FF;
+    }
+    #ulMenu li a:active,
+    #ulMenu li a.active {
+      color: #7DF9FF;
+    }
+  
     /* Responsive Styles */
     @media (max-width: 1024px) {
       .content-container {
@@ -203,11 +194,69 @@
         padding: 10px 20px;
       }
       .gallery img {
-        width: 150px; /* Slightly smaller on mobile */
+        width: 150px;
+      }
+    }
+    /* New media query for very small screens (e.g., phones) */
+    @media (max-width: 480px) {
+      /* Adjust overall container spacing */
+      .content-container {
+        margin: 10px;
+        gap: 10px;
+      }
+      /* Adjust hero section */
+      .hero {
+        padding: 15px;
+        margin: 10px;
+        min-height: 400px;
+        background-position: center;
+      }
+      /* Center and scale down hero text */
+      .hero-text {
+        margin-top: 80px;
+        margin-left: 0;
+        text-align: center;
+      }
+      .hero-text h2 {
+        font-size: 24px;
+      }
+      .hero-text h1 {
+        font-size: 28px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
+      .shoot-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+      /* Adjust gallery section */
+      .gallery-section {
+        padding: 10px;
+      }
+      .gallery-section h3 {
+        font-size: 20px;
+      }
+      .gallery img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+      }
+      /* Adjust header/nav */
+      header {
+        padding: 10px 15px;
+      }
+      nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav ul li {
+        margin: 10px 0;
       }
     }
   </style>
-</head>
+  
 
 <body
   class="dark:bg-black bg-white h-screen text-black dark:text-white px-5 md:px-20 opacity-0 animate-fade-in transition duration-500">
