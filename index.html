@@ -19,71 +19,194 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
   <!-- End - Fonts -->
-   <style>
+  <style>
+    /* Global Reset/Defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-  margin: 0; /* Reset default browser margins */
-  padding: 0; /* Reset default browser padding */
-   /* Center vertically */
-  min-height: 100vh; /* Full viewport height */
-  background-color: #fff; /* Optional, for visibility */
-}
-
-.container {
-  max-width: 100%; /* Ensure the container is responsive */
-  padding: 20px;
-}
-
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-  display: block; /* Ensures no inline spacing issues */
-  margin: 0 auto; /* Center image horizontally */
-  border: 2px solid #fff;
-}
-@media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-
-      .image-container {
-        border-radius: 5px;
-      }
+      font-family: 'Raleway', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
     }
 
-    @media (max-width: 480px) {
-      .image-container img {
-        border: 1px solid #ddd;
-      }
-    }
+    /* HEADER */
     
 
-    /* The overlaid button */
-    .overlay-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* Blue background */
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 30px;
-      cursor: pointer;
+    /* Main Content Container */
+    .content-container {
+      display: flex;
+      gap: 20px;
+      margin-top: 50px;
+      margin-left: 20px;
     }
 
-    /* Hover state for the button */
-   
+    /* HERO SECTION */
+    .hero {
+      flex: 2;
+      position: relative;
+      padding: 60px 80px;
+      border: 1px solid #fff;
+      background: url('/dist/assets/wallpaperflare.com_wallpaper.jpg') center/cover no-repeat;
+      min-height: 600px;
+    }
+    /* Overlay for better text contrast */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      max-width: 80%;
+      font-family: 'Playfair Display', serif;
+      /* Extra spacing tweaks */
+      margin-top: 150px;
+      margin-left: 20px;
+    }
+    .hero-text h2 {
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .hero-text h2 span {
+      color: #7DF9FF; /* Accent color */
+      font-style: italic;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+    }
+    .shoot-btn {
+      background-color: #7DF9FF;
+      color: #000;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .shoot-btn:hover {
+      background-color: #5fe7ee; /* Slightly darker/lighter variant */
+    }
 
-   </style>
+    /* GALLERY SECTION */
+    .gallery-section {
+      flex: 1;
+      border-left: 1px solid #fff; /* Vertical separator */
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-section h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-family: 'Playfair Display', serif;
+      color: #7DF9FF; /* Accent color for heading */
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .gallery img {
+      width: 250px; /* Increased size for bigger gallery images */
+      border-radius: 5px;
+      border: 1px solid #fff;
+      object-fit: cover;
+    }
+    .portfolio-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #7DF9FF; /* Your accent color */
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-btn:hover {
+  background-color: #5fe7ee; /* Slight color shift on hover */
+}
+#ulMenu li a:hover {
+  color: #7DF9FF;
+}
+
+/* Keep the color on active/clicked state */
+/* If you add an "active" class to the current page's link, this rule applies */
+#ulMenu li a:active,
+#ulMenu li a.active {
+  color: #7DF9FF;
+}
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .content-container {
+        flex-direction: column;
+        margin: 30px;
+      }
+      .hero {
+        padding: 40px;
+        margin-bottom: 20px;
+      }
+      .hero-text {
+        max-width: 100%;
+        margin-left: 0;
+      }
+      .gallery-section {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 30px;
+      }
+      nav ul {
+        display: none;
+      }
+      .hero {
+        padding: 20px;
+        margin: 20px;
+      }
+      .hero-text h2 {
+        font-size: 28px;
+      }
+      .hero-text h1 {
+        font-size: 32px;
+      }
+      .shoot-btn {
+        padding: 10px 20px;
+      }
+      .gallery img {
+        width: 150px; /* Slightly smaller on mobile */
+      }
+    }
+  </style>
 </head>
 
 <body
@@ -93,7 +216,7 @@
     <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
         <div class="mr-4 md:mr-8">
-          <a href="index.html" class="text-2xl font-signika font-bold">SOPHIA WILLIAMS</a>
+          <a href="index.html" class="text-2xl font-signika font-bold" style="color: #7DF9FF; ">SOPHIA WILLIAMS</a>
         </div>
         <div class="ml-auto md:hidden flex items-center justify-start">
           <button onclick="menuToggle()" @click="open = !open"
@@ -118,7 +241,7 @@
           <ul id="ulMenu"
             class="flex flex-col duration-300 ease-out md:space-x-5 sm:transition-none mt-5 md:flex-row md:items-center md:ml-auto md:mt-0 md:pt-0 md:border-0">
             <li class="group transition duration-300">
-              <a href="index.html" class="font-signika text-2xl tap-highlight-transparent">HOME
+              <a href="index.html" class="font-signika text-2xl tap-highlight-transparent "  >HOME
                 <span
                   class="hidden md:block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black dark:bg-white"></span>
               </a>
@@ -147,31 +270,43 @@
     </nav>
   </header>
   <!--content-->
-  <div class="container">
+  <main>
+    <div class="content-container">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Let us capture <span>moments</span> of your life</h2>
+          <h1>SOPHIA WILLIAMS</h1>
+          <p>Photography</p>
+          <a class="shoot-btn" href="dist/contact.html">Schedule a shoot</a>
+        </div>
+      </section>
 
-    <div class="image-container ">
-      <img src="dist/assets/wallpaperflare.com_wallpaper.jpg" alt="Woman in a field holding flowers">
-      <a href="dist/portfolio.html" class="overlay-btn">View Portfolio</a>
-
+      <!-- GALLERY SECTION -->
+      <aside class="gallery-section">
+        <h3>Gallery</h3>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1667093060577-02f07eb01585?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1750&amp;q=80" alt="Gallery Image 1">
+          <img src="https://images.unsplash.com/photo-1675971074488-351394caf6aa?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1740&amp;q=80" alt="Gallery Image 2">
+          <img src="https://images.unsplash.com/photo-1675910568522-c187fd74d5b9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1740&amp;q=80" alt="Gallery Image 3">
+        </div>
+        <a href="dist/portfolio.html" class="portfolio-btn">View Portfolio</a>
+      </aside>
     </div>
-  </div>
-  
-  
-  
-  
+  </main>
   <!-- Footer -->
   <footer>
     <div class="max-w-screen-xl py-16 mx-auto">
       <div class="grid grid-cols-1 gap-8 text-center mx-auto">
         <div>
-          <p class="font-signika"><b>SOPHIA WILLIAMS</b></p>
-          <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+          <p class="font-signika" style="color: #7DF9FF;"><b>SOPHIA WILLIAMS</b></p>
+          <p class="mt-4 text-sm text-gray-600 dark:text-gray-300" style="color: #7DF9FF;">
             929 Carter Road, Bandra West, Mumbai, MH 400050<br />(022) 123-4567
           </p>
           <div class="flex mx-auto">
-            <div class="mx-auto space-x-6 flex mt-8 text-gray-600 dark:text-gray-300">
+            <div class="mx-auto space-x-6 flex mt-8 ">
               <a class="transition duration-300 hover:opacity-75" href="https://www.facebook.com" target="_blank"
-                rel="noreferrer">
+                rel="noreferrer" style="color: #7DF9FF;">
                 <span class="sr-only"> Facebook </span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd"
@@ -180,7 +315,7 @@
                 </svg>
               </a>
               <a class="transition duration-300 hover:opacity-75" href="https://www.instagram.com" target="_blank"
-                rel="noreferrer">
+                rel="noreferrer" style="color: #7DF9FF;">
                 <span class="sr-only"> Instagram </span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd"
@@ -189,7 +324,7 @@
                 </svg>
               </a>
               <a class="transition duration-300 hover:opacity-75" href="https://twitter.com" target="_blank"
-                rel="noreferrer">
+                rel="noreferrer" style="color: #7DF9FF;">
                 <span class="sr-only"> Twitter </span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -197,7 +332,7 @@
                 </svg>
               </a>
               <a class="transition duration-300 hover:opacity-75" href="https://www.linkedin.com" target="_blank"
-                rel="noreferrer">
+                rel="noreferrer" style="color: #7DF9FF;">
                 <span class="sr-only">LinkedIn</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
